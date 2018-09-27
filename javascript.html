@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+</head>
+<body>
+
+
+
+
+	<script type="text/javascript">
+		
+		function init(){
+			var theObject= new XMLHttpRequest();
+			
+			
+			theObject.open("GET", "javascript.php", true);
+
+			theObject.onreadystatechange = function(){
+				if(theObject.readyState == 4 && theObject.status == 200){
+					document.getElementById("container").innerHTML=theObject.responseText;
+				}
+			}
+			theObject.send("user=Sachin&email=support@codingacademy.com&role=Admin");
+		}
+	</script>
+
+	<button onclick="init()">Send Info</button>
+
+	<div id="container">
+		
+	</div>
+
+
+</body>
+</html>

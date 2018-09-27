@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document-Post</title>
+</head>
+<body>
+	<button type="button" onclick="init();">Send Info</button>
+
+	<div id="container">
+		
+	</div>
+
+
+
+	<script type="text/javascript">
+		
+		function init(){
+			var theObject= new XMLHttpRequest();
+			
+			
+			theObject.open("POST", "jspost.php", true);
+
+			theObject.setRequestHeader("Content-type","applicaton/x-www-form-urlencoded");
+			
+			theObject.onreadystatechange = function(){
+				if(theObject.readyState == 4 && theObject.status == 200){
+					document.getElementById("container").innerHTML=theObject.responseText;
+				}
+			}
+			theObject.send("uname=sachin");
+		}
+	</script>
+
+	
+
+
+</body>
+</html>
